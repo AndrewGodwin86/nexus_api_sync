@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              http://github.com/AndrewGodwin86/nexus_api_sync
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           nexus_api_sync
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Plugin Name:       Nexus API Sync
+ * Plugin URI:        http://github.com/AndrewGodwin86/nexus_api_sync
+ * Description:       This plugin can sync data from the KA Nexus content hub.
  * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Author:            Andrew Godwin
+ * Author URI:        http://www.andrewrgodwin.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       plugin-name
