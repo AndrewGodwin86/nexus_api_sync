@@ -161,15 +161,21 @@ class Plugin_Name {
 			add_menu_page( 'Nexus API Sync Page', 'Nexus API Sync', 'manage_options', 'Nexus_API_Sync', 'admin_menu_init' );
 		}
 
+		function get_last_run_dates() {
+			global $wpdb;
+			$result = $wpdb->get_results( "SELECT * FROM wp_nexusSyncDates ");
+
+			foreach($result as $row) {
+				$fmtEntityName = ucfirst($row->entityName);
+				echo "<h2>".$fmtEntityName."</h2>";
+				echo "<p class=\"last-updated-date\">Last updated: ".$row->syncLastRunDate."</p>";
+				echo "<button>Update ".$fmtEntityName."</button>";
+			}
+		}
+
 		function admin_menu_init(){
-			//sync_last_run_dates();
 			echo "<h1>Nexus API Sync</h1>";
-			echo "<h2>Projects</h2>";
-			echo "<p class=\"last-updated-date\">Last updated: </p>";
-			echo "<button>Update Projects</button>";
-			echo "<h2>People</h2>";
-			echo "<p class=\"last-updated-date\">Last updated: </p>";
-			echo "<button>Update People</button>";
+			get_last_run_dates();
 		}
 
 	}
