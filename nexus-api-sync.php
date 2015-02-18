@@ -50,6 +50,8 @@ function deactivate_plugin_name() {
 
 register_activation_hook( __FILE__, 'activate_plugin_name' );
 register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'nexus_db_install' );
+register_activation_hook( __FILE__, 'nexus_db_populate' );
 
 /**
  * The core plugin class that is used to define internationalization,

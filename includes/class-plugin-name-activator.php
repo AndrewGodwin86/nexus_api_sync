@@ -41,14 +41,31 @@ class Plugin_Name_Activator {
 			$sql = "CREATE TABLE $table_name (
 			  id mediumint(9) NOT NULL AUTO_INCREMENT,
 			  entityName tinytext NOT NULL,
-			  syncLastRun datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-			  text text NOT NULL,
-			  url varchar(55) DEFAULT '' NOT NULL,
+			  syncLastRunDate datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			  UNIQUE KEY id (id)
 			) $charset_collate;";
 
 			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 			dbDelta( $sql );
+		}
+
+		function nexus_db_populate() {
+
+			global $wpdb;
+
+			$table_name = $wpdb->prefix . 'nexusSyncDates';
+
+			$entities = ['projects','people'];
+
+			foreach ($entities as $value) {
+				$wpdb->insert(
+					$table_name,
+					array(
+						'entityName' => $value
+					)
+				);
+			}
+
 		}
 	}
 }
