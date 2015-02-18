@@ -68,7 +68,7 @@ class Plugin_Name {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'plugin-name';
+		$this->plugin_name = 'nexus_api_sync';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -158,11 +158,18 @@ class Plugin_Name {
 		add_action('admin_menu', 'plugin_name_setup_menu');
 
 		function plugin_name_setup_menu(){
-			add_menu_page( 'Nexus API Sync Page', 'Nexus API Sync', 'manage_options', 'Nexus_API_Sync', 'test_init' );
+			add_menu_page( 'Nexus API Sync Page', 'Nexus API Sync', 'manage_options', 'Nexus_API_Sync', 'admin_menu_init' );
 		}
 
-		function test_init(){
+		function admin_menu_init(){
+			//sync_last_run_dates();
 			echo "<h1>Nexus API Sync</h1>";
+			echo "<h2>Projects</h2>";
+			echo "<p class=\"last-updated-date\">Last updated: </p>";
+			echo "<button>Update Projects</button>";
+			echo "<h2>People</h2>";
+			echo "<p class=\"last-updated-date\">Last updated: </p>";
+			echo "<button>Update People</button>";
 		}
 
 	}
