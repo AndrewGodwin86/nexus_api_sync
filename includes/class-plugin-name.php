@@ -155,6 +155,16 @@ class Plugin_Name {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		add_action('admin_menu', 'plugin_name_setup_menu');
+
+		function plugin_name_setup_menu(){
+			add_menu_page( 'Nexus API Sync Page', 'Nexus API Sync', 'manage_options', 'Nexus_API_Sync', 'test_init' );
+		}
+
+		function test_init(){
+			echo "<h1>Nexus API Sync</h1>";
+		}
+
 	}
 
 	/**
